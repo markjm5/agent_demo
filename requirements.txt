@@ -1,0 +1,9 @@
+streamlit
+pandas
+plotly
+psycopg2
+requests
+tweepy
+matplotlib
+seaborn
+xlsxwriter
