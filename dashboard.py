@@ -54,26 +54,20 @@ st.header(option)
 
 if option == 'Chat to Agent':
 
-    option = st.selectbox(
+    option_llm = st.selectbox(
         "Select LLM",
         ("gpt-4o-mini"),
     )
 
-    option = st.selectbox(
+    option_prompt = st.selectbox(
         "Select Prompt",
-        ("React"),
+        ("react"),
     )
 
-    #num_days = st.sidebar.slider('Number of days', 1, 30, 3)
-    #clicked1 = st.markdown("Invoke Agent")
     text_input = st.text_input(
         "Chat to Agent 👇"
     )
 
     if text_input:
-        #st.write("You entered: ", text_input)    
-        invoke_agent(st, text_input)
-    #clicked1 = st.button(label="Send",key="economic_cal_data")
-
-    #if(clicked1):
+        invoke_agent(st, option_llm, option_prompt, text_input)
      

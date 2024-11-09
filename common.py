@@ -6,14 +6,14 @@ from langchain_core.prompts import PromptTemplate
 
 # Up to 39:56    of https://www.youtube.com/watch?v=W7TZwB-KErw
 
-def invoke_agent(st, query="What is the current time in New York. You are currently in Singapore."):
+def invoke_agent(st, option_llm="gpt-4o-mini", option_prompt="react", query="What is the current time in New York. You are currently in Singapore."):
   load_dotenv()  # take environment variables from .env.
 
-  llm = ChatOpenAI(model="gpt-4o-mini") 
+  llm = ChatOpenAI(model=option_llm) 
 
   query = query
   
-  prompt_template = get_react_prompt_template()
+  prompt_template = get_react_prompt_template(option_prompt)
 
   tools = [check_system_time]
 
@@ -35,5 +35,5 @@ def invoke_agent(st, query="What is the current time in New York. You are curren
   except IndexError as e:
       st.write("Still thinking...")
 
-def get_react_prompt_template():
-    return PromptTemplate.from_file("./prompts/react.txt")
+def get_react_prompt_template(prompt):
+    return PromptTemplate.from_file("./prompts/%s.txt" % (prompt))
