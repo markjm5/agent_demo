@@ -1,0 +1,12 @@
+{
+    "folders":[
+        {
+            "path": "."
+        }
+
+    ],
+    "settings":{
+        "python.terminal.activateEnvInCurrentTerminal": true,
+        "python.defaultInterpreterPath": "/Users/mmukherjee/Documents/PythonProjects/agent_demo/env/bin/python3"
+    }
+}
