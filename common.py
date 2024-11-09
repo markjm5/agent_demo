@@ -16,6 +16,7 @@ def invoke_agent(st, option_llm="gpt-4o-mini", option_prompt="react", query="Wha
   prompt_template = get_react_prompt_template(option_prompt)
 
   tools = [check_system_time]
+  #tools = []
 
   agent = create_react_agent(llm, tools, prompt_template)
   agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True, handle_parsing_errors=True, return_intermediate_steps=True)
@@ -30,7 +31,6 @@ def invoke_agent(st, option_llm="gpt-4o-mini", option_prompt="react", query="Wha
     i=0
     for x in train_of_thought:    
       i = i + 1
-      #import pdb; pdb.set_trace()
       st.write("%s - %s" % (i,x.lstrip()))
   except IndexError as e:
       st.write("Still thinking...")
