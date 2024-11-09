@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain.agents import create_react_agent, AgentExecutor
-from tools.agent_tools import check_system_time
+from tools.agent_tools import check_system_time, get_order_id, get_order_detail
 from langchain_core.prompts import PromptTemplate
 
 # Up to 39:56    of https://www.youtube.com/watch?v=W7TZwB-KErw
@@ -15,7 +15,7 @@ def invoke_agent(st, option_llm="gpt-4o-mini", option_prompt="react", query="Wha
   
   prompt_template = get_react_prompt_template(option_prompt)
 
-  tools = [check_system_time]
+  tools = [check_system_time, get_order_id, get_order_detail]
   #tools = []
 
   agent = create_react_agent(llm, tools, prompt_template)
@@ -27,11 +27,11 @@ def invoke_agent(st, option_llm="gpt-4o-mini", option_prompt="react", query="Wha
   st.header("ReAct Reasoning Process:")
   try:
     resp = response['intermediate_steps'][0][0].to_json()['kwargs']['log']
-    train_of_thought = resp.split('.')
-    i=0
-    for x in train_of_thought:    
-      i = i + 1
-      st.write("%s - %s" % (i,x.lstrip()))
+    #train_of_thought = resp.split('.')
+    #i=0
+    #for x in train_of_thought:    
+    #  i = i + 1
+    st.write(resp)
   except IndexError as e:
       st.write("Still thinking...")
 
