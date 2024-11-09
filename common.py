@@ -1,8 +1,8 @@
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
-from react_template import get_react_prompt_template
 from langchain.agents import create_react_agent, AgentExecutor
 from tools.system_time_tool import check_system_time
+from langchain_core.prompts import PromptTemplate
 
 # Up to 39:56    of https://www.youtube.com/watch?v=W7TZwB-KErw
 
@@ -34,3 +34,6 @@ def invoke_agent(st, query="What is the current time in New York. You are curren
       st.write("%s - %s" % (i,x.lstrip()))
   except IndexError as e:
       st.write("Still thinking...")
+
+def get_react_prompt_template():
+    return PromptTemplate.from_file("./prompts/react.txt")

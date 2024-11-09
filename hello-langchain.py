@@ -5,7 +5,7 @@ from langchain_openai import ChatOpenAI
 from langchain_core.output_parsers import StrOutputParser 
 from langchain.tools.render import render_text_description
 #from langchain import hub
-from react_template import get_react_prompt_template
+from common import get_react_prompt_template
 from langchain.agents import create_react_agent, AgentExecutor
 from tools.system_time_tool import check_system_time
 from groq import Groq
