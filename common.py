@@ -26,12 +26,14 @@ def invoke_agent(st, option_llm="gpt-4o-mini", option_prompt="react", query="Wha
   st.write(response['output'])
   st.header("ReAct Reasoning Process:")
   try:
+    #import pdb; pdb.set_trace()
     resp = response['intermediate_steps'][0][0].to_json()['kwargs']['log']
     #train_of_thought = resp.split('.')
-    #i=0
-    #for x in train_of_thought:    
-    #  i = i + 1
-    st.write(resp)
+    i=0
+    for x in response['intermediate_steps']:    
+      i = i + 1
+      #import pdb; pdb.set_trace()
+      st.write("%s - %s" % (i, x[0].log.lstrip()))
   except IndexError as e:
       st.write("Still thinking...")
 

@@ -31,8 +31,8 @@ def get_order_id(order_email:str):
     return df.to_json(orient='records', lines=True)
 
 @tool
-def get_order_detail(order_email:str):
-    """Returns the details of an order using order email"""
+def get_order_detail(order_id:str):
+    """Returns the order details using order id"""
 
     df = pd.DataFrame()
     df.insert(0,str("Order Number").strip(),[],True)
