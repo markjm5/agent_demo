@@ -7,7 +7,7 @@ from langchain.tools.render import render_text_description
 #from langchain import hub
 from common import get_react_prompt_template
 from langchain.agents import create_react_agent, AgentExecutor
-from tools.system_time_tool import check_system_time
+from tools.agent_tools import check_system_time
 from groq import Groq
 
 # Up to 39:56    of https://www.youtube.com/watch?v=W7TZwB-KErw

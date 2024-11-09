@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain.agents import create_react_agent, AgentExecutor
-from tools.system_time_tool import check_system_time
+from tools.agent_tools import check_system_time
 from langchain_core.prompts import PromptTemplate
 
 # Up to 39:56    of https://www.youtube.com/watch?v=W7TZwB-KErw
