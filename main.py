@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from livekit.agents import AutoSubscribe, JobContext, WorkerOptions, cli, llm
 from livekit.agents.voice_assistant import VoiceAssistant
 from livekit.plugins import openai, silero
-from livekit_api import AssistantFnc
+from tools.livekit_api import AssistantFnc
 
 #To fix Cert Error:
 #Creating a symlink from OS certificates to Python worked for me:
