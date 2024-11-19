@@ -53,7 +53,6 @@ option = st.sidebar.selectbox("Which Option?", ('Chat to Agent'), 0)
 st.header(option)
 
 if option == 'Chat to Agent':
-
     option_llm = st.selectbox(
         "Select LLM",
         ("gpt-4o-mini"),
